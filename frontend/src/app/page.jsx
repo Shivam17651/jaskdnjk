@@ -27,7 +27,7 @@ const home = () => {
                     <div className='mx:auto '>
                         <div className='grid grid-cols-2 w-full '>
                             <Link
-                            href='/poll/skxdf'
+                            href='http://192.168.1.43:3000/host/66ef2736181d08a6467753c5'
                             className='ml-20 w-1/2 py-2 px-2 text-xl font-bold mt-10 bg-red-600 text-white col-span-1 shadow-md'>JOIN as a Participant</Link>
                             <Link
                             href='/manage-room'

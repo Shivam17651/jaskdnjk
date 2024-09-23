@@ -1,4 +1,5 @@
 'use client'
+import app_config from '@/config';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
@@ -6,7 +7,7 @@ import toast from 'react-hot-toast';
 
 const ManageRoom = () => {
 
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [RoomList, setRoomList] = useState([]);
 
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')));
@@ -15,7 +16,7 @@ const ManageRoom = () => {
 
 
   const fetchUsersData = async () => {  //user async with the await keyword because it only works in async functions
-    const res = await axios.get('http://localhost:5000/room/getall');
+    const res = await axios.get(app_config.api_url+'/room/getall');
     console.log(res.status);
     console.table(res.data);
     setRoomList(res.data)
@@ -33,7 +34,7 @@ const ManageRoom = () => {
   }
 
   const createNewRoom = () => {
-    axios.post('http://localhost:5000/room/add', { title: inputRef.current.value, owner: currentUser._id })
+    axios.post(app_config.api_url+'/room/add', { title: inputRef.current.value, owner: currentUser._id })
       .then((result) => {
         toast.success('room created');
         fetchUsersData();
@@ -44,7 +45,7 @@ const ManageRoom = () => {
   }
 
   return (
-    <div className='max-w-5xl mx-auto mt-6'>
+    <div className='bg-gradient-to-r from-blue-200 to-red-200 mx-auto mt-6 w-full h-screen '>
 
       <div className='border shadow rounded-xl'>
 
@@ -52,8 +53,8 @@ const ManageRoom = () => {
           <input
             ref={inputRef}
             placeholder='Add a New Poll Room'
-            type="text" className='w-full px-3 py-3 bg-gray-300 rounded-xl outline-none' />
-          <button onClick={createNewRoom} className='border p-4'>Create New Room</button>
+            type="text" className='w-full px-3 py-3 bg-white rounded-xl outline-none' />
+          <button onClick={createNewRoom} className='border p-4 mt-3 rounded-full border-blue-600 text-white bg-blue-600 font-semibold text-sm hover:bg-red-500'>Create New Room</button>
         </div>
 
         <div className='p-6'>
@@ -70,7 +71,7 @@ const ManageRoom = () => {
                   <div className='mt-2 flex justify-end gap-4'>
                     <Link
                       href={'/host/' + room._id}
-                      className='bg-blue-500 text-white px-2 py-1 rounded-full hover:bg-red-600'>
+                      className='bg-blue-500 text-white px-2 py-1 font-semibold text-sm rounded-full hover:bg-blue-700'>
                       View Host
                     </Link>
                     <button

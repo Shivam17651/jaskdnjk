@@ -9,8 +9,8 @@ const Footer = () => {
   return (
     <>
     {/* ========== FOOTER ========== */}
-    <footer className="mt-auto bg-red-900 w-full dark:bg-red-600">
-      <div className="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
+    <footer className="bg-red-900 mt-20  dark:bg-red-600">
+      <div className="mt-20 py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 ">
         {/* Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
           <div className="col-span-full lg:col-span-1">
@@ -128,7 +128,7 @@ const Footer = () => {
         <div className="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
           <div className="flex justify-between items-center">
             <p className="text-sm text-gray-400 dark:text-neutral-400">
-              © 2022 Preline. All rights reserved.
+              © 2022 Hands Up Polls! all rights reserved.
             </p>
           </div>
           {/* End Col */}
